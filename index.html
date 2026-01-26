@@ -104,44 +104,44 @@
                 </div>
 
                 <div class="bg-primary-blue p-8 rounded-xl shadow-lg text-white text-center">
-    <div class="mb-3 text-4xl">🎓</div>
-    <h4 class="text-2xl font-bold mb-2">Empowering Excellence</h4>
-    <p class="mb-4 text-sm italic opacity-90 leading-relaxed">
-        "Education is the most powerful weapon which you can use to change the world."
-    </p>
-    <hr class="border-white/20 mb-6">
-    <p class="text-xs uppercase tracking-widest font-bold text-accent-orange">2026 Scholarship Program</p>
-    <p class="text-sm">Kick-off: January 28, 2026. Review the checklist below to prepare!</p>
-</div>
+                    <div class="mb-3 text-4xl">🎓</div>
+                    <h4 class="text-2xl font-bold mb-2">Empowering Excellence</h4>
+                    <p class="mb-4 text-sm italic opacity-90 leading-relaxed">
+                        "Education is the most powerful weapon which you can use to change the world."
+                    </p>
+                    <hr class="border-white/20 mb-6">
+                    <p class="text-xs uppercase tracking-widest font-bold text-accent-orange">2026 Scholarship Program</p>
+                    <p class="text-sm">Kick-off: January 28, 2026. Review the checklist below to prepare!</p>
+                </div>
 
-<section class="mt-12 bg-gray-50 p-6 md:p-8 rounded-xl border border-gray-200">
-    <h3 class="text-3xl font-extrabold text-primary-blue mb-8 text-center">Scholarship Readiness Checklist</h3>
-    
-    <div class="max-w-4xl mx-auto">
-        <div class="bg-white p-6 md:p-8 rounded-lg shadow-md border-l-8 border-accent-orange">
-            
-            <h4 class="font-bold text-xl mb-6 text-gray-800 leading-tight">
-                <span class="text-2xl block mb-2">🎒</span> 
-                Primary, Secondary & Vocational Students
-            </h4>
-            
-            <ul class="space-y-4 text-gray-700 text-base">
-                <li class="flex items-start">
-                    <span class="text-green-500 mr-3">✅</span> 
-                    <span>Currently enrolled in an accredited school or vocational center.</span>
-                </li>
-                <li class="flex items-start">
-                    <span class="text-green-500 mr-3">✅</span> 
-                    <span>Shows interest in going to school, learning tailoring, or acquiring other vocational skills.</span>
-                </li>
-                <li class="flex items-start">
-                    <span class="text-green-500 mr-3">✅</span> 
-                    <span>Recommendation from a teacher, community leader, or craft master.</span>
-                </li>
-            </ul>
-        </div>
-    </div>
-</section>
+                <section class="mt-12 bg-gray-50 p-6 md:p-8 rounded-xl border border-gray-200">
+                    <h3 class="text-3xl font-extrabold text-primary-blue mb-8 text-center">Scholarship Readiness Checklist</h3>
+                    
+                    <div class="max-w-4xl mx-auto">
+                        <div class="bg-white p-6 md:p-8 rounded-lg shadow-md border-l-8 border-accent-orange">
+                            
+                            <h4 class="font-bold text-xl mb-6 text-gray-800 leading-tight">
+                                <span class="text-2xl block mb-2">🎒</span> 
+                                Primary, Secondary & Vocational Students
+                            </h4>
+                            
+                            <ul class="space-y-4 text-gray-700 text-base">
+                                <li class="flex items-start">
+                                    <span class="text-green-500 mr-3">✅</span> 
+                                    <span>Currently enrolled in an accredited school or vocational center.</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-green-500 mr-3">✅</span> 
+                                    <span>Shows interest in going to school, learning tailoring, or acquiring other vocational skills.</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-green-500 mr-3">✅</span> 
+                                    <span>Recommendation from a teacher, community leader, or craft master.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
             </aside>
         </div>
     </main>
@@ -151,6 +151,43 @@
             &copy; 2026 Abike Aladeloye Foundation. All rights reserved.
         </div>
     </footer>
+
+    <div id="cookie-banner" class="fixed bottom-0 left-0 right-0 bg-text-dark text-white p-4 z-50 transform translate-y-full transition-transform duration-500 shadow-2xl">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+            <p class="text-sm text-center md:text-left opacity-90">
+                We use cookies to improve your experience on the Abike Aladeloye Foundation website. By continuing, you agree to our use of cookies.
+            </p>
+            <div class="flex space-x-4">
+                <button onclick="acceptCookies()" class="bg-accent-orange hover:bg-opacity-90 text-white px-6 py-2 rounded-lg font-bold transition">Accept</button>
+                <button onclick="declineCookies()" class="bg-gray-600 hover:bg-gray-500 text-white px-6 py-2 rounded-lg font-bold transition">Decline</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const banner = document.getElementById('cookie-banner');
+
+        // Show banner if preference isn't saved
+        window.onload = () => {
+            if (!localStorage.getItem('cookieConsent')) {
+                banner.classList.remove('translate-y-full');
+            }
+        };
+
+        function acceptCookies() {
+            localStorage.setItem('cookieConsent', 'accepted');
+            hideBanner();
+        }
+
+        function declineCookies() {
+            localStorage.setItem('cookieConsent', 'declined');
+            hideBanner();
+        }
+
+        function hideBanner() {
+            banner.classList.add('translate-y-full');
+        }
+    </script>
 
 </body>
 </html>
