@@ -164,30 +164,47 @@
         </div>
     </div>
 
-    <script>
-        const banner = document.getElementById('cookie-banner');
+  <script>
+    const banner = document.getElementById('cookie-banner');
 
-        // Show banner if preference isn't saved
-        window.onload = () => {
-            if (!localStorage.getItem('cookieConsent')) {
-                banner.classList.remove('translate-y-full');
-            }
-        };
+    window.onload = () => {
+        // Show banner every time as requested
+        setTimeout(() => {
+            banner.classList.remove('translate-y-full');
+        }, 100);
+    };
 
-        function acceptCookies() {
-            localStorage.setItem('cookieConsent', 'accepted');
-            hideBanner();
-        }
+    function acceptCookies() {
+        hideBanner();
+        console.log("Cookies Accepted");
+        
+        // ✅ CALL YOUR TRACKING SCRIPTS HERE
+        startTracking();
+    }
 
-        function declineCookies() {
-            localStorage.setItem('cookieConsent', 'declined');
-            hideBanner();
-        }
+    function declineCookies() {
+        hideBanner();
+        console.log("Cookies Declined - No tracking scripts loaded.");
+        // We do NOT call startTracking() here
+    }
 
-        function hideBanner() {
-            banner.classList.add('translate-y-full');
-        }
-    </script>
+    function hideBanner() {
+        banner.classList.add('translate-y-full');
+    }
 
+    // This function holds all the "Privacy-Sensitive" code
+    function startTracking() {
+        console.log("Loading Google Analytics/Pixels now...");
+        
+        /* PASTE YOUR FUTURE TRACKING CODE BELOW THIS LINE 
+           (e.g., Google Analytics gtag.js)
+        */
+        
+        // Example:
+        // let script = document.createElement('script');
+        // script.src = "https://www.googletagmanager.com/gtag/js?id=UA-XXXXX-Y";
+        // document.head.appendChild(script);
+    }
+</script>
 </body>
 </html>
